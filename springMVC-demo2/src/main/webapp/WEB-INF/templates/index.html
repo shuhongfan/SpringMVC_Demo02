@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>首页</h1>
+    <a th:href="@{/hello/testRequestMapping}">测试testRequestMapping注解的位置</a> <br>
+    <a th:href="@{/testRequestMapping}">测试testRequestMapping注解的value属性</a> <br>
+    <a th:href="@{/test}">测试testRequestMapping注解的value属性</a> <br>
+    <a th:href="@{/test}">测试testRequestMapping注解的method属性</a> <br>
+<!--    Request method 'POST' not supported-->
+    <form th:action="@{/test}" method="post">
+        <input type="submit" value="测试testRequestMapping注解的method属性">
+    </form>
+    <a th:href="@{/testGetMapping}">测试testGetMapping注解</a> <br>
+    <a th:href="@{/testPostMapping}">测试testPostMapping注解</a> <br>
+    <form th:action="@{/testPostMapping}" method="post">
+        <input type="submit" value="测试testPostMapping注解">
+    </form>
+    <form th:action="@{/testPut}" method="put">
+        <input type="submit" value="测试form表单是否能发送put或delete请求">
+    </form>
+    <a th:href="@{/testParamsAndHeaders?username=admin}">测试testRequestMapping注解的params属性</a> <br>
+    <a th:href="@{/testParamsAndHeaders(username='admin',password=12345)}">测试testRequestMapping注解的params属性</a> <br>
+
+    <a th:href="@{/a1a/testAnt}">测试@RequestMapping可以匹配ant风格的路径-->使用？</a> <br>
+    <a th:href="@{/aa/testAnt}">测试@RequestMapping可以匹配ant风格的路径--》使用*</a> <br>
+    <a th:href="@{/aewra/testAnt}">测试@RequestMapping可以匹配ant风格的路径--》使用*</a> <br>
+    <a th:href="@{/ae/w/ra/testAnt}">测试@RequestMapping可以匹配ant风格的路径--》使用**</a> <br>
+
+    <a th:href="@{/testPath/123456/root}">测试@RequestMapping支持路径中的占位符-->/testPath</a>
+</body>
+</html>
